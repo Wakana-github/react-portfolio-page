@@ -1,0 +1,61 @@
+/* 
+  stylesheet for portfolio - responsive react webpage
+  created on 16/3/2025
+  last edited 16/3/2025
+  created by Wakana Gushi 
+*/
+
+:root {
+  --main-background:#F8F2EC;
+  --button-hover-color: #f900f3;
+}
+
+*, ::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  max-width: 1920px;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--main-background);
+  font-family: "Montserrat";
+  font-size: 17px;
+}
+
+.title{
+  font-family: "Russo One", sans-serif;
+  font-size: 4rem;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  line-height:4rem;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 900px){
+
+  .title{
+    font-size: 3.8rem;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    line-height:3.2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .title{
+    font-size: 3.5rem;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    line-height:3.2rem;
+  }
+}
