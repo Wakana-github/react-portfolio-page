@@ -18,8 +18,9 @@ This is my portfolio page built using HTML, CSS and React with vanilla JavaScrip
 - Mobile users can open and close the main menu by clicking icons, implemented using JavaScript functions.</p>
 
 
-
-# React + Vite
+<br><br><br>
+**************************************************************************
+### React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
