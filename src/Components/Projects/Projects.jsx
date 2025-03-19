@@ -16,7 +16,7 @@ function Projects() {
                     <img  src={project.w_img} alt={project.w_name}/>
                     <div className='project_name'>{project.w_name}</div>
                     <p className="project-description">{project.w_disc}</p>
-                    <div className='see-more'><a href={project.w_link} target="_blank" className="project-tile">See More</a><img className='arrow' src={arrow_forward} alt="" /></div>
+                    <a href={project.w_link} target="_blank" className="project-tile"><div className='see-more'>See More<img className='arrow' src={arrow_forward} alt="" /></div></a>
                 </div>
 
                     )

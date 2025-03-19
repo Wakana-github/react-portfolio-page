@@ -34,17 +34,24 @@
     font-size: 22px;
   }
 
-  .contact-button{
+  .contact-link{
     justify-self: end;
-    border: none;
-    color: white;
-    border-radius: 50px;
-    background: linear-gradient(315deg, #f900f3 -5%, #2f0bcf 100%);
-    font-size: 22px;
-    padding: 20px 60px;
+    align-self: end;
     margin-top: 30px;
     margin-bottom: 50px;
     margin-right: 20px;
+    color: white;
+    text-decoration: none; 
+    display: block; 
+    width: fit-content; 
+    text-decoration: none;
+  }
+  .contact-button{
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(315deg, #f900f3 -5%, #2f0bcf 100%);
+    font-size: 22px;
+    padding: 20px 50px;
     cursor: pointer;
     transition: 0.3s;
   }

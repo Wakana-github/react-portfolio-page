@@ -1,3 +1,24 @@
+
+# Portfolio Website
+
+<p>You can view this website by clicking [here](https://wakanagushi.dev/).<br>
+This is my portfolio page built using HTML, CSS and React with vanilla JavaScript.</p>
+
+## Discription
+### Design
+- The design file created on Canva is stored in the "WebSite_Design" folder within the src/assets directory.
+
+### CSS Features
+- Using Gradient colours to create a modern-looking website.
+- Button sizes change hover over,  enhancing the user experience.
+
+### JavaScript / React Features  
+- Built with React to organise files by each section for better maintainability.
+- Utilised state to handle interactions in the main navigation menu and sub-navigation in the footer to displays the correct icon in the main menu.
+- Mobile users can open and close the main menu by clicking icons, implemented using JavaScript functions.</p>
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

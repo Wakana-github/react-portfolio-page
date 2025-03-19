@@ -41,7 +41,7 @@ const project_data = [
         w_name: "JS projects",
         w_img: jsFreeCodeCamp_img,
         w_disc: "JavaScript projects completed through self-study on freeCodeCamp.",
-        w_link:'https://www.freecodecamp.org/certification/fcc7844b4bf-624b-4228-9e44-09745724df6d/javascript-algorithms-and-data-structures-v8" target="_blank" class="project project-tile'
+        w_link:'https://www.freecodecamp.org/certification/fcc7844b4bf-624b-4228-9e44-09745724df6d/javascript-algorithms-and-data-structures-v8'
     },
     {
         w_no:6,

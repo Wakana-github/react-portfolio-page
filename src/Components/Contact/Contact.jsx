@@ -71,10 +71,10 @@ function Contact() {
                 <h1>Get in touch</h1>
                 <ul className='icons'>
                     <li>
-                    <a href="https://www.linkedin.com/in/wakanagushi" className="Linkedin"><img src={linkedin_logo} alt="Linkedin"/></a>
+                    <a href="https://www.linkedin.com/in/wakanagushi" className="Linkedin" target="_blank"><img src={linkedin_logo} alt="Linkedin"/></a>
                     </li>
                     <li>
-                    <a href="https://github.com/Wakana-github" className="Github"><img src={github_logo} alt="Github"/></a>
+                    <a href="https://github.com/Wakana-github" className="Github" target="_blank"><img src={github_logo} alt="Github"/></a>
                     </li>
                 </ul>
             </div>
