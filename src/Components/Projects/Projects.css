@@ -76,6 +76,7 @@
     min-width: 0px;
     min-height: 0px;
     max-width: 30px;
+    vertical-align: middle;
   }
 
   .see-more:hover{
@@ -84,6 +85,30 @@
     background-image: linear-gradient(45deg, #f900f3, #2f0bcf);
     transform: scale(1.05);
     transition: 0.4s;
+}
+
+.read-more-btn {
+  display: block; 
+  margin: 10px auto;
+  padding: 20px 65px;
+  font-size: 18px;
+  color: black;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.read-more-btn:hover {
+  color: white;
+  border: none;
+  background-image: linear-gradient(110deg, #f900f3 35%, #2f0bcf 100%);
+}
+.read-more-icon{
+  width: 25px;
+  height: auto;
+  margin-left: 10px;
+  vertical-align: middle;
 }
 
 @media (max-width: 900px) {
@@ -158,6 +183,9 @@
     }
     .see-more img{
         max-width: 20px;
+    }
+    .read-more-btn {
+      font-size: 16px;
     }
 
 }
