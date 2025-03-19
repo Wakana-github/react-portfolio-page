@@ -1,0 +1,6 @@
+# Ignore everything
+*
+
+# Allow build folder and its content
+!build/
+!build/**
