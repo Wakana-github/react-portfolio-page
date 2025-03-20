@@ -16,7 +16,8 @@ This is my portfolio page built using HTML, CSS and React with vanilla JavaScrip
 - Built with React to organise files by each section for better maintainability.
 - Utilised state to handle interactions in the main navigation menu and sub-navigation in the footer to displays the correct icon in the main menu.
 - Mobile users can open and close the main menu by clicking icons, implemented using JavaScript functions.
-- Mobile users can read more and hide projects by clicking the button.</p>
+- Mobile users can read more and hide projects by clicking the button.
+- Validation and sanitisation in the contact form to enhance security.
 
 
 <br><br><br>

@@ -1,37 +1,75 @@
 import React from 'react'
+import {useState} from 'react';
+import { useForm} from "react-hook-form"
 import './Contact.css'
 import linkedin_logo from '../../assets/LI-In-Bug.png'
 import github_logo from '../../assets/github-mark.png'
-import mail_icon from '../../assets/mail_icon.png'
 import wing_icon_pink from '../../assets/wing_icon_pink.svg'
 
 
-function Contact() {
 
     // code from web3forms.com -- create react home
-    const onSubmit = async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-    
-        formData.append("access_key", "16fbf32a-48a6-479b-a56c-a0718b930c65");
-    
-        const object = Object.fromEntries(formData);
-        const json = JSON.stringify(object);
-    
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: json
-        }).then((res) => res.json());
-    
-        if (res.success) {
-          alert(res.message);
-        }
-      };
+function Contact() {
+    const { register, handleSubmit, watch, formState: {errors} } = useForm();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [lastSubmitTime, setLastSubmitTime] = useState(0);
+    const NAME_REGEX = /^[a-zA-Z\s]+$/;
+    const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
 
+
+    //escape HTML tag
+    const sanitiseInput = (input) => {
+        if (typeof input !== 'string') return input;
+        return input
+            .replace(/</g, "&lt;")  
+            .replace(/>/g, "&gt;")
+            .trim();
+    };
+
+
+    const onSubmit = async (data) => {
+
+        const currentTime = Date.now();
+
+        // Check if less than 30 seconds have passed since the last submission
+        if (currentTime - lastSubmitTime < 30000) {
+            alert('You are sending messages too quickly. Please wait a moment and try again.');
+            return;
+        }
+        else{
+
+            setIsSubmitting(true);
+            
+
+            const sanitisedData = {
+                name: sanitiseInput(data.name),
+                email: sanitiseInput(data.email),
+                message: sanitiseInput(data.message),
+                access_key: "16fbf32a-48a6-479b-a56c-a0718b930c65"
+            };
+            const json = JSON.stringify(sanitisedData);
+
+           try{
+                const res = await fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    },
+                    body: json
+                }).then((res) => res.json());
+
+                if (res.success) {
+                    alert(res.message);
+                    setLastSubmitTime(currentTime); // Update last submission time
+                    }
+            } catch (error) {
+                alert('An error occurred while submitting the form. Please try again later.');
+            }
+
+            setIsSubmitting(false);
+        }
+    };
 
 
   return (
@@ -43,28 +81,33 @@ function Contact() {
             <div className="contact-left">
                 <p>Have you got a question?
                 <br/>Please send me a message.</p>
-
-                <div className="contact-details">
-                    <div className="contact-detail">
-                        {/* <img src={mail_icon} alt="" /> <p>greatestackdev@gmail.com</p>                     */}
-                    </div>
-                    <div className="contact-detail">
-                        {/* <img src={call_icon} alt="" /> <p>+772-825-524</p> */}
-                    </div>
-                    <div className="contact-detail">
-                        {/* <img src={location_icon} alt="" /> <p>CA, unidet States</p> */}
-                    </div>
-                </div>
-
-        
-                <form onSubmit={onSubmit} className="contact-form">
+       
+                <form onSubmit={handleSubmit(onSubmit)} className="contact-form">
                     <label className='form-heading' htmlFor="name">Your Name:</label>
-                    <input type="text" placeholder="Enter your name" name='name' />
+                    <input 
+                        {...register('name', { 
+                            required: "Name is required.", 
+                            pattern: { value: NAME_REGEX, message: "Name can only contain letters and spaces." } 
+                            })
+                        } 
+                    type="text" placeholder="Enter your name" />
+                        {errors.name && (<span className='errormsg'>{errors.name.message}</span>)}
+
                     <label className='form-heading' htmlFor="email">Your Email:</label>
-                    <input type="email" placeholder='Enter your email' name='email'/>
+                    <input  {...register('email', { 
+                            required: "Email is required.", 
+                            pattern: { value: EMAIL_REGEX, message: "Invalid email address." } 
+                        })}  
+                    type="email" placeholder='Enter your email' />
+                    {errors.email && (<span className='errormsg'>{errors.email.message}</span>)}
+
                     <label className='form-heading' htmlFor="textbox">Write your message:</label>
-                    <textarea name='message' rows='8' placeholder='Enter your message'></textarea>
-                    <button type='submit' className='contact-submit'>Submit now</button>
+                    <textarea {...register('message', { required: true })}  rows='8' placeholder='Enter your message'></textarea>
+                    {errors.message && (<span className='errormsg'>message is required</span>)}
+
+                    <button type='submit' className='contact-submit' disabled={isSubmitting}>
+                        {isSubmitting ? 'Submitting...' : 'Submit now'}
+                    </button>
                 </form>
             </div>
             <div className="contact-right">

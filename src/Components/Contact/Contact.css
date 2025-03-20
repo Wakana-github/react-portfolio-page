@@ -28,12 +28,6 @@
     line-height: 35px;
 }
    
-.contact-detail{
-    display: flex;
-    align-items: start;
-    gap: 20px;
-    margin-top: 10px
-}
 
 .form-heading {
     display: block;
@@ -56,6 +50,14 @@
     border-bottom-width: 2px;
     font-size: 20px;
 }
+
+.errormsg{
+    color: red;
+    line-height: 1.3rem;
+    display: block; 
+    margin-top: 5px; 
+}
+
 
 .contact-right{
     grid-column:  2/ 3;
